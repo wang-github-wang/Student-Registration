@@ -26,24 +26,11 @@
     background-color:silver
 }
 
-.class_2{
-    background-color: gray;
-}
-
-/* #mybtn {
-    float: right;
-    /* position:fixed; */
-    /* background-color:green; */
-    /* border:none;
-    color: #fff;
-    margin:100px 180px; */
-
-/* } */ 
 </style>
 <body onload="loaded()">
     <div id="box" >
         <button style ="margin: 24px;" onclick="insert();">添加班级</button>
-        <button onclick="deleter()">删除班级</button>
+        <button onclick="deleteClass()">删除班级</button>
         <button style ="margin-left: 27px;" onclick="reflesh()">刷新</button>
         
         <div style="margin-top: 24px;">
@@ -144,7 +131,7 @@
             <button onclick="submit()">取消</button>
             
     </div>
-    </body>
+</body>
 <script>
     var studnets = [
         {
@@ -194,6 +181,7 @@
     var grade3 = ["1班","2班","3班","4班","5班","6班","7班","8班"];
     var grade4 = ["1班","2班","3班","4班","5班","6班","7班","8班"];
     
+    var deleteNode;
     var gradeTwoDom;
     var classTwo;
     var close2Dom;
@@ -269,7 +257,7 @@
                 $("#classOne").append('<div class="class_" onclick="clickGrade(this)">'+ grade1[i] + '</div');
             }
             for(var i=0;i<grade2.length;i++){
-                $("#classTwo").append('<div class="class_2" onclick="clickGrade(this)">'+ grade2[i] + '</div');
+                $("#classTwo").append('<div class="class_" onclick="clickGrade(this)">'+ grade2[i] + '</div');
             }
             for(var i=0;i<grade3.length;i++){
                 $("#classThree").append('<div class="class_" onclick="clickGrade(this)">'+ grade3[i] + '</div');
@@ -280,21 +268,21 @@
         } 
         function clickGrade(e) {
             debugger;
-            // console.log("e.innerText",e.innerText);
-            // console.log("e.parentNode.parentNode.id",e.parentNode.parentNode.id);
-						var Grade2 = document.getElementsByClassName("class_2");
-						Grade2.style.display= "none";
-						// Grade2.style.color ="gray";
-            // if(inputClass.value = e.innerText){
-						// 		Grade2.remove(inputClass.value)
-						// 		$("#classTwo").append('<div>'+ inputClass.value + '</div');
-            // }
-           
-                
-                
-               
             
+            // steelblue
+            var class_list = document.getElementsByClassName("class_");
+            for(var i=0;i<class_list.length;i++){
+                if(class_list[i].innerText == e.innerText && e.parentNode.parentNode.id == class_list[i].parentNode.parentNode.id){
+                    // class_list[i]就是点击的class为class_的dom
+                    class_list[i].style.backgroundColor = "gray";
+                    deleteNode = class_list[i];
+                }else{
+                    class_list[i].style.backgroundColor = "steelblue";
+                }
+            }
             
+
+
         }
         /*
             添加班级确认按钮
@@ -412,6 +400,20 @@
             classFour.style.display= "none";
             open4Dom.style.display= "inline-block";
             close4Dom.style.display= "none";
+        }
+        /* 
+            删除选中班级
+        */
+        function deleteClass(){
+            if(deleteNode != null){
+                var parNode = deleteNode.parentNode;
+                parNode.removeChild(deleteNode);
+                deleteNode = null;
+            }else{
+                console.log("请先选择需要删除的班级！");
+                
+            }
+            
         }
     
     </script>
