@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<style>
+#box {
+    padding: 0;
+    width: 350px;
+    height: 500px;
+    background-color:steelblue;
+    border: 1px solid gray;
+    float: left;
+    text-align: center;
+    margin-left: 20px;
+    overflow:scroll;
+}
+#box1 {
+    width:900px;
+    height:600px;
+    float:right;
+    border: 1px solid gray;
+    background-color:silver
+}
+
+.class_2{
+    background-color: gray;
+}
+
+/* #mybtn {
+    float: right;
+    /* position:fixed; */
+    /* background-color:green; */
+    /* border:none;
+    color: #fff;
+    margin:100px 180px; */
+
+/* } */ 
+</style>
+<body onload="loaded()">
+    <div id="box" >
+        <button style ="margin: 24px;" onclick="insert();">添加班级</button>
+        <button onclick="deleter()">删除班级</button>
+        <button style ="margin-left: 27px;" onclick="reflesh()">刷新</button>
+        
+        <div style="margin-top: 24px;">
+            <label style="margin-top: 24px;">年级</label><input type="text" id="inputGrade"><br>
+            <label style="margin-top: 24px;">班级</label><input type="text" id="inputClass"><br>
+            <input style="margin-top: 24px" id="comfirm" type="button" value="确认" onclick="confirm()">
+            <input style="margin-left: 24px" id="esc" type="button" value="取消">
+        </div>
+        <div>
+            <div id="gradeOne">
+                <div>
+                    <span id="open1" onclick="open1()" style="cursor: pointer;">
+                        +
+                    </span>
+                    <span id="close1" onclick="close1()" style="cursor: pointer;">
+                        -
+                    </span>
+                    <span class="class">
+                        大一
+                    </span>
+                </div>
+                <div id ="classOne" style ="display: none;">
+
+                </div>
+            </div>
+            <div id="gradeTwo">
+                    <div>
+                        <span id="open2" onclick="open2()" style="cursor: pointer;">
+                            +
+                        </span>
+                        <span id="close2" onclick="close2()" style="cursor: pointer;">
+                            -
+                        </span>
+                        <span class="class">
+                            大二
+                        </span>
+                    </div>
+                    <div id="classTwo" style="display: none;">
+                    
+                    </div>
+            </div>
+            <div id="gradeThree">
+                <div>
+                    <span id="open3" onclick="open3()" style = "cursor: pointer;">
+                        +
+                    </span>
+                    <span id="close3" onclick="close3()" style="cursor: pointer;">
+                        -
+                    </span>
+                    <span class="class">
+                        大三
+                    </span>
+                </div>
+                <div id ="classThree" style="display: none;">
+
+                </div>
+            </div>
+            <div id="gradeFour">
+                <div>
+                    <span id="open4" onclick="open4()" style="cursor: pointer;">
+                        +
+                    </span>
+                    <span id="close4" onclick="close4()" style="cursor: pointer;">
+                        -
+                    </span>
+                    <span class="class">
+                        大四
+                    </span>
+                </div>
+                <div id="classFour" style="display: none;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="box1">
+        <div id="mybtn">
+            <button onclick="submit()">填写资料</button>
+            <button onclick="submit()">学生总览</button>
+        </div>
+
+        <div>
+            <form>
+                年级：<input type="text" type="text"><br>
+                班级：<input type="text"><br>
+                姓名：<input type="text"><br>
+                性别：<input type="radio" name="sex" value="male">Male
+                     <input type="radio" name="sex" value="female">Female<br>
+                年龄：<input type="text"><br>
+                成绩：<input type="text"><br>
+                备注：<br>
+                <textarea name="a" style="width:200px;height:80px;">这里写内容</textarea>
+            </form>
+            
+        </div>
+            <button onclick="submit()">报名</button>
+            <button onclick="submit()">取消</button>
+            
+    </div>
+    </body>
+<script>
+    var studnets = [
+        {
+            grade:'大一',
+            class:"1班",
+            pic:"pic",
+            name:"张三",
+            sex:"男",
+            age:"18",
+            achievement:"90",
+            remarks:"naocan"
+        },
+        {
+            grade:"大二",
+            class:"1班",
+            pic:"pic",
+            name:"李四",
+            sex:"男",
+            age:"18",
+            achievement:"90",
+            remarks:"naocan"
+        },
+        {
+            grade:'大一',
+            class:"1班",
+            pic:"pic",
+            name:"王五",
+            sex:"男",
+            age:"18",
+            achievement:"90",
+            remarks:"naocan"
+        },
+        {
+            grade:"大二",
+            class:"1班",
+            pic:"pic",
+            name:"赵六",
+            sex:"男",
+            age:"18",
+            achievement:"90",
+            remarks:"naocan"
+        }
+    ]
+    
+    var grade1 = ["1班","2班","3班","4班","5班","6班","7班","8班"];
+    var grade2 = ["1班","2班","3班","4班","5班","6班","7班","8班"];
+    var grade3 = ["1班","2班","3班","4班","5班","6班","7班","8班"];
+    var grade4 = ["1班","2班","3班","4班","5班","6班","7班","8班"];
+    
+    var gradeTwoDom;
+    var classTwo;
+    var close2Dom;
+    var close2Dom;
+    
+    var inputGrade;
+    var inputClass;
+    
+    // var gradeOneDom;
+
+    var classOne;
+    var open1Dom;
+    var close1Dom;
+    
+    var classThree;
+    var open3Dom;
+    var close3Dom;
+    
+    var classFour;
+    var open4Dom;
+    var close4Dom;
+    
+    
+        /*
+            整个文档加载完时触发
+        */
+        function loaded(){
+            // 
+            // var gradeClass_ = document.getElementsByClassName("class_");
+            // $(".class_").bind("click",function(e){
+            // 	// var tar = e.target;
+            // 	debugger;
+            // })
+            debugger;
+            gradeTwoDom = document.getElementById("gradeTwo");
+            open2Dom = document.getElementById("open2");
+            close2Dom = document.getElementById("close2");
+            inputGrade = document.getElementById("inputGrade");
+            inputClass = document.getElementById("inputClass");
+            classTwo = document.getElementById("classTwo");
+    
+            close2Dom.style.display = "none";
+    
+            //初始化加载大一时,得到dom
+            gradeOneDom = document.getElementById("gradeOne");
+            open1Dom = document.getElementById("open1");
+            close1Dom = document.getElementById("close1");
+            inputGrade = document.getElementById("inputGrade");
+            inputClass= document.getElementById("inputClass");
+            classOne = document.getElementById("classOne"); 
+            close1Dom.style.display = "none";
+    
+        //    //初始化加载大三时，得到dom
+           gradeThreeDom = document.getElementById("gradeThree");
+           open3Dom = document.getElementById("open3");
+           close3Dom = document.getElementById("close3");
+           inputGrade = document.getElementById("inputGrade");
+           inputClass = document.getElementById("inputClass");
+           classThree = document.getElementById("classThree");
+           close3Dom.style.display = "none";
+    
+           //初始化加载大四时，得到dom
+           gradeFourDom = document.getElementById("gradeFour");
+           open4Dom = document.getElementById("open4");
+           close4Dom = document.getElementById("close4");
+           inputClass = document.getElementById("inputClass");
+           inputGrade = document.getElementById("inputGrade");
+           classFour = document.getElementById("classFour");
+           close4Dom.style.display = "none";
+           
+            //  初始化年级
+            for(var i=0;i<grade1.length;i++){
+                $("#classOne").append('<div class="class_" onclick="clickGrade(this)">'+ grade1[i] + '</div');
+            }
+            for(var i=0;i<grade2.length;i++){
+                $("#classTwo").append('<div class="class_2" onclick="clickGrade(this)">'+ grade2[i] + '</div');
+            }
+            for(var i=0;i<grade3.length;i++){
+                $("#classThree").append('<div class="class_" onclick="clickGrade(this)">'+ grade3[i] + '</div');
+            }
+            for(var i=0;i<grade4.length;i++){
+                $("#classFour").append('<div class="class_" onclick="clickGrade(this)">'+ grade4[i] + '</div');
+            }
+        } 
+        function clickGrade(e) {
+            debugger;
+            // console.log("e.innerText",e.innerText);
+            // console.log("e.parentNode.parentNode.id",e.parentNode.parentNode.id);
+						var Grade2 = document.getElementsByClassName("class_2");
+						Grade2.style.display= "none";
+						// Grade2.style.color ="gray";
+            // if(inputClass.value = e.innerText){
+						// 		Grade2.remove(inputClass.value)
+						// 		$("#classTwo").append('<div>'+ inputClass.value + '</div');
+            // }
+           
+                
+                
+               
+            
+            
+        }
+        /*
+            添加班级确认按钮
+        */
+        function confirm(){
+            debugger;
+            if(inputGrade.value == "大一") {
+                //向大一年级添加班级
+                grade1.push(inputClass.value);
+                //将大一数据展现出来
+                $("#classOne").append('<div>'+ inputClass.value + '</div');
+            }
+            if(inputGrade.value == "大二") {
+                //向大二年级添加班级
+                grade2.push(inputClass.value);
+                //将大二数据展现出来
+                $("#classTwo").append('<div>'+ inputClass.value + '</div');
+            }
+            if(inputGrade.value == "大三"){
+                //向大三年级添加班级
+                grade3.push(inputClass.value);
+                //将大三数据展现出来
+                $("#classThree").append('<div>' + inputClass.value + '</div>');
+            }
+            if(inputGrade.value == "大四"){
+                //向大四年级添加班级
+                grade4.push(inputClass.value);
+                //将大四数据展现出来
+                $("#classFour").append('<div>' + inputClass.value + '</div');
+            }
+        
+        }
+        /* 
+         当输入年级为大二时，添加班级为展示
+                           +消失 -出现
+        */
+        function open2(){
+            debugger;
+            if(grade2.length != 0){
+                classTwo.style.display = "inline-block";
+            }
+            close2Dom.style.display = "inline-block";
+            open2Dom.style.display = "none";
+            
+            
+        }
+        /* 
+         当数据为无时，添加班级为消失
+                     + 出现 -消失
+        */
+        function close2(){
+            classTwo.style.display = "none";
+            close2Dom.style.display = "none";
+            open2Dom.style.display = "inline-block";
+        }
+        /* 
+         当输入年级为大一时，添加班级为展示
+                           +消失 -出现
+        */
+        function open1(){
+            if(grade1.length != 0){
+                classOne.style.display = "inline-block";
+            }
+            close1Dom.style.display = "inline-block";
+            open1Dom.style.display = "none";
+            
+        }
+        /* 
+         当数据为无时，添加班级为消失
+                     + 出现 -消失
+        */
+        function close1(){
+            classOne.style.display = "none";
+            close1Dom.style.display = "none";
+            open1Dom.style.display = "inline-block";
+        }
+        /* 
+         当输入年级为大三时，添加班级为展示
+                           +消失 -出现
+        */
+        function open3(){
+            if(grade3.length !=0){
+               classThree.style.display = "inline-block";
+            }
+            close3Dom.style.display = "inline-block";
+            open3Dom.style.display = "none";
+            
+        }
+        /* 
+         当数据为无时，添加班级为消失
+                     + 出现 -消失
+        */
+        function close3(){
+            classThree.style.display = "none";
+            close3Dom.style.display = "none";
+            open3Dom.style.display = "inline-block";
+        }
+        /* 
+         当输入年级为大四时，添加班级为展示
+                           +消失 -出现
+        */
+        function open4(){
+            if(grade4.length != 0){
+               classFour.style.display = "inline-block";
+            }
+            open4Dom.style.display= "none";
+            close4Dom.style.display= "inline-block";
+            
+        }
+        /* 
+         当数据为无时，添加班级为消失
+                     + 出现 -消失
+        */
+        function close4(){
+            classFour.style.display= "none";
+            open4Dom.style.display= "inline-block";
+            close4Dom.style.display= "none";
+        }
+    
+    </script>
+
+    </html>
+    
+
+            
+                
+                
+         
+                          
+                          
+                          
+													
+													
+													
