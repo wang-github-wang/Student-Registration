@@ -1,0 +1,50 @@
+基础编辑：
+
+Ctrl +  X 剪切
+Ctrl +  C 复制
+Ctrl +  V 粘贴
+Ctrl + S 保存
+Ctrl + Z 撤销
+
+Alt+PgUp / PgDown 向上或向下滚动页面
+Alt+ ↑ / ↓ 向上/向下移动行
+Alt+单击 插入光标
+crtl + shift + Alt +PaUp/PgDown 列框页选择上下
+Ctrl + Shift + Alt +（箭头键） 列框选择上下
+Shift+Alt+ ↓ / ↑ 向上/向下复制行
+
+Ctrl + F2  选择当前字的所有出现
+Ctrl +F 查找
+Ctrl + H 替换
+F3 Shift+ F3查找下一个或上一个 
+Alt + C / R / W  切换区分大小写/正则表达式/整个词
+
+Ctrl+Shift+K 删除行
+Ctrl+/ 切换行注释
+Shift+Alt+A切换块注释
+Ctrl+↑ / ↓向上或向下滚动行
+
+
+Ctrl+=/- 放大或缩小
+Ctrl + Shift + N  新窗口
+Ctrl + Shift + W  关闭窗口
+Ctrl+Shift+G	显示Git
+Ctrl+Shift+J   切换搜索详细信息
+
+
+Ctrl+N  新文件
+Ctrl+O  打开文件
+Ctrl+Shift+S  另存为
+Ctrl+F4 关闭编辑器
+F11 切换全屏
+
+集成终端：
+Ctrl+`显示集成终端 
+Ctrl+Shift+`创建新终端
+
+调试：
+F9  切换断点
+F5  开始/继续
+F11 下一步/上一步
+F10 跳过
+
