@@ -3,3 +3,7 @@
 3.研究下DOM event     https://www.w3school.com.cn/jsref/dom_obj_event.asp
 4.去掉刷新按钮
 5.研究css选择器和jQuery选择器   输出两个文档
+6.在vsCode中集成git,并掌握从vsCode更新和上传代码    输出文档
+    更新仓库最新代码到本地
+    修改了20个文件，代码修改后怎么一次撤销所有修改
+    修改后的代码如何上传到仓库
