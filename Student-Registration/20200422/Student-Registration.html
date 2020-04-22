@@ -16,7 +16,7 @@
     float: left;
     text-align: center;
     margin-left: 20px;
-    overflow:scroll;
+    overflow-y:scroll;
 }
 #box1 {
     width:900px;
@@ -34,10 +34,11 @@
         <button style ="margin-left: 27px;" onclick="reflesh()">刷新</button>
         
         <div style="margin-top: 24px;">
-            <label style="margin-top: 24px;">年级</label><input type="text" id="inputGrade"><br>
-            <label style="margin-top: 24px;">班级</label><input type="text" id="inputClass"><br>
+            <label style="margin-top: 24px;">年级</label><input type="text" id="inputGrade" disabled><br>
+            <label style="margin-top: 24px;">班级</label><input type="text" id="inputClass" disabled><br>
             <input style="margin-top: 24px" id="comfirm" type="button" value="确认" onclick="confirm()">
-            <input style="margin-left: 24px" id="esc" type="button" value="取消">
+            <!-- <button style ="margin-left: 27px;" onclick="clearContent()">取消</button> -->
+            <input style="margin-left: 24px" id="esc" type="button" value="取消" onclick ="clearContent()">
         </div>
         <div>
             <div id="gradeOne">
@@ -313,7 +314,23 @@
                 //将大四数据展现出来
                 $("#classFour").append('<div>' + inputClass.value + '</div');
             }
+            var inputGrade1 =document.getElementById("inputGrade").value;
+            var inputclass1 =document.getElementById("inputClass").value;
+            if(inputGrade1 == null || inputGrade1 == ""){
+                 alert("请输入年级");
+            }
+            if(inputclass1 == null || inputclass1 == ""){
+                alert("请输入班级");
+            }
         
+        }
+        /* 
+         点击取消时，清空内容
+         */
+         function clearContent(){
+            debugger;
+            document.getElementById("inputGrade").value = "";
+            document.getElementById("inputClass").value = "";
         }
         /* 
          当输入年级为大二时，添加班级为展示
