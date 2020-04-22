@@ -1,0 +1,5 @@
+1.年级和班级输入框内有提示信息，分别为："请输入年级"和"请输入班级"  (参考淘宝https://login.taobao.com/member/login.jhtml?redirectURL=http%3A%2F%2Fs.taobao.com%2Fsearch%3Fspm%3Da21bo.2017.201867-links-2.13.5af911d9bKaVap%26q%3D%25E5%25A5%25B3%25E7%25AB%25A5%25E8%25BF%2590%25E5%258A%25A8%25E9%259E%258B%26imgfile%3D%26js%3D1%26stats_click%3Dsearch_radio_all%253A1%26initiative_id%3Dstaobaoz_20160314%26ie%3Dutf8&uuid=d22258fe275cd0078018db0a334e0a69)
+2.页面加载完时年级输入框置灰不可编辑，班级输入框置灰不可编辑，确认按钮置灰不可点击，取消按钮置灰不可点击，加载完后如果点击添加班级按钮，恢复可编辑和可点击
+3.研究下DOM event     https://www.w3school.com.cn/jsref/dom_obj_event.asp
+4.去掉刷新按钮
+5.研究css选择器和jQuery选择器   输出两个文档
