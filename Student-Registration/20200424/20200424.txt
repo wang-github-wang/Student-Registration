@@ -1,0 +1,7 @@
+1.CDN   输出文档
+2.jQuey选择器  文档修改完善
+3.在vsCode中集成git,并掌握从vsCode更新和上传代码    输出文档
+    a.更新仓库最新代码到本地
+    b.修改了20个文件，代码修改后怎么一次撤销所有修改
+    c.修改后的代码如何上传到仓库
+4.在线编程  https://www.nowcoder.com/ta/front-end

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="inputStr"><input type="button" value="输出" onclick="matchesPattern()">
+  <input type="text" id="outputStr">
+  
+</body>
+<script>
+  function matchesPattern() {
+    debugger;
+    let str = document.getElementById("inputStr").value;
+    let outputObj = document.getElementById("outputStr");
+    if(str && str.length == 12) {
+      let strList = str.split('-');
+      if(strList.length == 3){
+        let flag = true;
+        /* strList.map(item => {
+          let n = Number(item);
+          if(isNaN(n)){
+            flag =false;
+          }
+        }) */
+        for(let i=o;i<strList.length;i++){
+          let n = Number(strList[i]);
+          if(isNaN(n)){
+            flag =false;
+          }
+        }
+        if(flag){
+          outputObj.value = "true";
+          return true;
+        }else{
+          outputObj.value = "false";
+          return false;
+        }
+      }else{
+        outputObj.value = "false";
+        return false;
+      }
+    }else{
+      outputObj.value = "false";
+      return false;
+    }
+}
+</script>
+</html>
