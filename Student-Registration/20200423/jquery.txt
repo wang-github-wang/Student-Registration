@@ -1,0 +1,31 @@
+Jquery选择器
+1.css选择器
+  标签选择器
+  id选择器
+  类选择器
+  通用选择器
+  群组选择器
+
+2.层级选择器
+  子元素过滤选择器
+  后代选择器
+  紧邻同辈选择器
+  相邻同辈选择器
+3.表单域选择器
+  ：input :text :password :radio :check :file :image :hidden :button :submit :reset
+
+4.简单过滤选择器
+:first :last :odd :even :eq() :gt() :lt() :not :header :animated
+5.内容过滤选择器
+ :contains() :has() :empty :parent
+6.属性过滤选择器
+
+7.子元素过滤选择器
+:first-child :last-child :nth-child :only-child
+
+8.表单域属性过滤选择器
+:checked :enabled :disabled :selected
+
+9.可见性过滤选择器
+ ；hidden :visible
+
