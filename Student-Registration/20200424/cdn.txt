@@ -1,0 +1,11 @@
+CDN:是内容分发网络
+   通过CDN引入的 和 下载下来是同样的效果，引入文件的两种方式罢了！区别在于用CDN引入的，需要通过网络去请求，而下载下来直接就可以用。
+   通过CDN引入jQuery的几种方式
+   百度
+       <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    新浪  
+       <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+    又拍云
+       <script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+    Google
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

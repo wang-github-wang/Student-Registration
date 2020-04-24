@@ -1,16 +1,36 @@
 Jquery选择器
 1.css选择器
-  标签选择器
-  id选择器
+  标签选择器(元素选择器)
+    格式：$("elemnet")
+    $("div")
+  id选择器 
+    格式：$("id")
+    $("#test").val();
   类选择器
+    格式：$("class")
+    $(".t").css("border","2px solid blue")
   通用选择器
+     格式：$("*")
+     $("*").css("color","red")
   群组选择器
-
+     格式：$("selector,selector2,selector2N")
+      $("div,span,p,style.class").css("border","2px solid blue")
 2.层级选择器
   子元素过滤选择器
+      格式： $("parent>child")
+      $("form > input")
+      匹配form表单中所有的自己input元素
   后代选择器
+       格式：$("ancestor descendant")
+       $("form input")
+       查找form元素的后代元素中为input的标记
   紧邻同辈选择器
+       格式：$("peev+next")
+       $("div+span")
+       匹配所有跟在div后的span元素
   相邻同辈选择器
+        格式：$("prev~slblings")
+        $("input~p").css("color","red")
 3.表单域选择器
   ：input :text :password :radio :check :file :image :hidden :button :submit :reset
 
@@ -29,3 +49,5 @@ Jquery选择器
 9.可见性过滤选择器
  ；hidden :visible
 
+参考：http://www.360doc.com/content/13/1206/15/10504424_334970071.sht
+css选择器:https://www.cnblogs.com/qinwang913/p/3443766.html
